@@ -1,0 +1,9 @@
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\bin\Debug\MyFirstPlugin.dll
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\bin\Debug\MyFirstPlugin.pdb
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\bin\Debug\PhotonHivePlugin.dll
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\bin\Debug\PhotonHivePlugin.pdb
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\obj\Debug\MyFirstPlugin.csproj.AssemblyReference.cache
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\obj\Debug\MyFirstPlugin.csproj.CoreCompileInputs.cache
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\obj\Debug\MyFirstPlugin.csproj.CopyComplete
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\obj\Debug\MyFirstPlugin.dll
+D:\Game Development\photon-server\src-server\Plugins\MyFirstPlugin\obj\Debug\MyFirstPlugin.pdb
