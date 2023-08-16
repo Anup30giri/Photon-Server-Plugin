@@ -15,10 +15,6 @@ namespace MyFirstPlugin
             this.pluginLogger = host.CreateLogger(this.Name);
             return base.SetupInstance(host, config, out errorMsg);
         }
-        public override void BeforeJoin(IBeforeJoinGameCallInfo info)
-        {
-            this.pluginLogger.Info($"Before Join:{info.AuthCookie}");
-        }
 
         public override void OnCreateGame(ICreateGameCallInfo info)
         {
