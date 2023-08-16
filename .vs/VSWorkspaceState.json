@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\bin\\ARM64",
-    "\\bin\\ARM64\\Release",
-    "\\obj",
     "\\Properties"
   ],
   "SelectedNode": "\\MyFirstPlugin.cs",
-  "PreviewInSolutionExplorer": false
+  "PreviewInSolutionExplorer": true
 }
