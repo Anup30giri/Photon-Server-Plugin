@@ -1,5 +1,6 @@
 ﻿using Photon.Hive.Plugin;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MyFirstPlugin
 {
@@ -14,18 +15,21 @@ namespace MyFirstPlugin
             this.pluginLogger = host.CreateLogger(this.Name);
             return base.SetupInstance(host, config, out errorMsg);
         }
+        public override void BeforeJoin(IBeforeJoinGameCallInfo info)
+        {
+            this.pluginLogger.Info($"Before Join:{info.AuthCookie}");
+        }
 
         public override void OnCreateGame(ICreateGameCallInfo info)
         {
             string eventData = "Hello from Photon Server ";
             this.pluginLogger.InfoFormat($"OnCreateGame {eventData} by user {1} Anup", eventData);
-            //SendCustomEvent(5, eventData);
             info.Continue();
         }
 
         // Method for Sending Data to Client
         public void RaiseEvent(
-        byte eventCode, 
+        byte eventCode,
         object eventData,
         byte receiverGroup = ReciverGroup.All,
         int senderActorNumber = 0,
@@ -51,6 +55,10 @@ namespace MyFirstPlugin
             {
                 this.pluginLogger.Debug($"Data from event:{eventCode} with information {info.Request.Data}");
             }
+             if (eventCode == 14)
+            {
+                this.pluginLogger.Debug($"Data from RPC {eventCode} with information {info.Request.Data}");
+            }
 
             RaiseEvent(eventCode: 123, eventData: "Hello From Server");
 
@@ -65,7 +73,29 @@ namespace MyFirstPlugin
                 cacheOp: 0,
                 sendParameters: new SendParameters() { Unreliable = false });
             }
+
+            // Http Get Request
+            var request = new HttpRequest
+            {
+                Url = "http://18.233.82.156/",
+                Method = "GET",
+                Accept = "application/json",
+                ContentType = "application/json",
+                Callback = OnHttpResponse,
+                UserState = null,
+                Async = true
+
+            };
+
+            PluginHost.HttpRequest(request,info);
+        }
+
+        private void OnHttpResponse(IHttpResponse response, object userState)
+        {
+            this.pluginLogger.Info($"ResponseData: {response.Status}");
+            this.pluginLogger.Info($"ResponseData: {response.ResponseText}");
         }
 
     }
 }
+ 
